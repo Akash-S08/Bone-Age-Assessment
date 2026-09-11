@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bone Age Assessment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🦴 Bone Age Assessment System</h1>
+            <p>Upload a pediatric left-hand X-ray for bone age prediction</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                    <div class="upload-content">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7,10 12,15 17,10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        <p>Click to upload or drag and drop</p>
+                        <small>Supports PNG, JPG, JPEG formats</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-section" id="previewSection" style="display: none;">
+                <h3>Uploaded Image</h3>
+                <img id="previewImage" alt="Preview">
+                <button id="analyzeBtn" class="analyze-btn">Analyze Bone Age</button>
+            </div>
+
+            <div class="loading-section" id="loadingSection" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing image... Please wait</p>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h3>Analysis Results</h3>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h4>Predicted Bone Age</h4>
+                        <p class="age-result" id="ageResult">--</p>
+                        <small id="ageMonths">-- months</small>
+                    </div>
+                    <div class="result-card">
+                        <h4>Confidence Score</h4>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" id="confidenceFill"></div>
+                        </div>
+                        <p id="confidenceText">--%</p>
+                    </div>
+                    <div class="result-card">
+                        <h4>Uncertainty</h4>
+                        <p id="uncertaintyResult">± -- months</p>
+                    </div>
+                </div>
+
+                <div class="attention-section">
+                    <h4>Original X-ray</h4>
+                    <img id="originalXray" alt="Original X-ray" style="max-width: 300px; margin-bottom: 15px;">
+
+                    <h4>Attention Heatmap</h4>
+                    <p class="attention-description">
+                    The heatmap shows which regions the AI model focused on when making the prediction.
+                    Red areas indicate higher attention.
+                    </p>
+                    <img id="attentionHeatmap" alt="Attention Heatmap" style="max-width: 300px; margin-bottom: 15px;">
+                </div>
+
+                <div class="model-info">
+                    <h4>Model Information</h4>
+                    <div id="modelInfo"></div>
+                </div>
+
+                <button id="newAnalysisBtn" class="new-analysis-btn">Analyze Another Image</button>
+            </div>
+
+            <div class="error-section" id="errorSection" style="display: none;">
+                <div class="error-content">
+                    <h3>❌ Error</h3>
+                    <p id="errorMessage">Something went wrong. Please try again.</p>
+                    <button id="retryBtn" class="retry-btn">Try Again</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>⚠️ This tool is for research and educational purposes only. Not intended for clinical diagnosis.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

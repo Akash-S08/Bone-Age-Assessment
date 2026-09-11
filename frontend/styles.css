@@ -1,0 +1,267 @@
+/* 🔥 ULTRA MAX PRO UI - AI STYLE */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* 🔥 Animated gradient background */
+body::before {
+    content: "";
+    position: fixed;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, #6366f1, transparent);
+    top: -200px;
+    left: -200px;
+    filter: blur(150px);
+    animation: float 8s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, #ec4899, transparent);
+    bottom: -200px;
+    right: -200px;
+    filter: blur(150px);
+    animation: float 10s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(50px); }
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    color: white;
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+header p {
+    opacity: 0.7;
+}
+
+/* Glass panel */
+main {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(25px);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+/* Upload area */
+.upload-area {
+    border: 2px dashed rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 70px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.upload-area:hover {
+    border-color: #6366f1;
+    box-shadow: 0 0 20px rgba(99,102,241,0.6);
+    transform: scale(1.02);
+}
+
+/* Upload glow */
+.upload-area::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(120deg, transparent, rgba(99,102,241,0.3), transparent);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.upload-area:hover::after {
+    opacity: 1;
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    padding: 14px 30px;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 40px rgba(236,72,153,0.6);
+}
+
+/* Button shine */
+button::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: rotate(25deg);
+    left: -100%;
+    top: -100%;
+    transition: 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+/* Image */
+img {
+    border-radius: 15px;
+    transition: 0.4s;
+}
+
+img:hover {
+    transform: scale(1.04);
+}
+
+/* Result cards */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.result-card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: 0.4s;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(99,102,241,0.5);
+}
+
+.age-result {
+    font-size: 2.4rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #a78bfa, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Heatmap glow */
+.attention-section img {
+    max-width: 90%;
+    margin: 15px;
+    box-shadow: 0 0 30px rgba(236,72,153,0.6);
+}
+
+/* Spinner */
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(255,255,255,0.2);
+    border-top: 6px solid #ec4899;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* Fade animation */
+.preview-section,
+.results-section {
+    animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0.6;
+}
+
+.attention-section img {
+    width: 320px !important;
+    max-width: 320px !important;
+    height: auto !important;
+    display: block;
+    margin: 15px auto;
+    box-shadow: 0 0 30px rgba(236,72,153,0.6);
+}
+
+#previewImage {
+    width: 300px !important;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 12px;
+}
+/* Confidence bar container */
+.confidence-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+/* Gradient fill */
+.confidence-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    background: linear-gradient(
+        90deg,
+        #ef4444,   /* red */
+        #f59e0b,   /* yellow */
+        #22c55e    /* green */
+    );
+    transition: width 0.5s ease;
+}
